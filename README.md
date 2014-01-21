@@ -1,6 +1,6 @@
 Pixer
 =====
-## Build proccess
+## Grunt build proccess
 1. Install node from http://nodejs.org/
 2. Open console and write "npm install -g grunt-cli"
 3. Browse to project dir in console and write "npm install".
