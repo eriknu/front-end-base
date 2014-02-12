@@ -6,17 +6,18 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 /*=================================================================================================================================== 
  #Less Vars
 ======================================================================================================================================*/
-@main-color: #000;
+@main-color: #3498db;
 @link-color: #4599C8;
 @border-color: #ccc;
+@background-color: #eee;
 
 @light-text-color: #999;
 @heading-color: #222;
 @text-color: #555;
 
 @serif-font: Georgia, serif;
-@body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
-@heading-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@body-font: Arial, sans-serif;
+@heading-font: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
 /*=================================================================================================================================== 
@@ -47,6 +48,12 @@ a{
 	&:hover{
 		color: darken(@link-color, 15%);
 	}
+}
+
+p{
+  font-size: 13px;
+  line-height: 21px;
+  font-family: @body-font;
 }
 
 hr {
@@ -86,12 +93,292 @@ blockquote {
 em, i{ font-style: italic; }
 strong, b {font-weight: bold; color: darken(@text-color, 10%);}
 
+img{ max-width: 100%; }
+
+/* Browser Resets
+*********************************/
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider { margin: 0 0 60px; position: relative; zoom: 1; }
+.flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+.loading .flex-viewport { max-height: 300px; }
+.flexslider .slides { zoom: 1; }
+.carousel li { margin-right: 5px; }
+
+/* Control Nav */
+.flex-control-nav {width: 100%; position: absolute; bottom: 40px; text-align: center; z-index: 9;}
+.flex-control-nav li {margin: 0 6px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-paging li a {opacity:.20; width: 11px; height: 11px; display: block; background: #666; background: #fff; cursor: pointer; text-indent: -9999px; .round(20px);}
+.flex-control-paging li a:hover { opacity: .5 }
+.flex-control-paging li a.flex-active { opacity: 1; cursor: default; }
 
 /*=================================================================================================================================== 
  #Helpers
 ======================================================================================================================================*/
 
+.bt{
+  color: @main-color;
+}
 
+.dt{
+  display: table;
+}
+.tc{
+  display: table-cell;
+  vertical-align: middle;
+}
+body{
+  background: @background-color;
+}
+
+/*=================================================================================================================================== 
+ #Header
+======================================================================================================================================*/
+#pageHeader{
+  background: url('../img/header_background.jpg') no-repeat center top;
+  background-size: cover;
+  height: 555px;
+  position: relative;
+  
+  &:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.61);
+  }
+  
+  h1{
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 81px;
+    line-height: 81px;
+    font-weight: 800;
+    position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      margin-top: -50px;
+    
+    small{
+      display: block;
+      font-size: 35px;
+      font-weight: 100;
+      line-height: 20px;
+
+    }
+  }
+  .container{
+    position: relative;
+    z-index: 2;
+    .row{
+    margin-top: 30px;
+  }}
+  
+  nav{
+    ul{
+      float: right;
+    li{
+      height: 53px;
+      line-height: 53px;
+      list-style: none;
+      float: left;
+      margin-left: 60px;
+      a{
+        &.active{
+          color: @main-color;
+        }
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 14px;
+        font-family: @heading-font;
+      }
+    }}
+  }
+}
+
+
+/*=================================================================================================================================== 
+/* .box
+======================================================================================================================================*/
+.box{
+  background: #fff;
+  height: 345px;
+  margin-top: 95px;
+  padding: 35px;
+  text-align: center;
+  
+  h2{
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+  
+  i{
+    font-size: 130px;
+    color: @main-color;
+  }
+  
+  &.code{
+    i{
+      font-size: 180px;
+      height: 130px;
+      line-height: 114px;
+    }
+  }
+}
+
+
+/*=================================================================================================================================== 
+/* .quotes
+======================================================================================================================================*/
+.quotes{
+  height: 405px;
+  margin-top: 95px;
+  background: @main-color url('../img/quote_background.png') center center no-repeat;
+  text-align: center;
+  
+  p{
+    color: #fff;
+    font-size: 30px;
+    line-height: 45px;
+    width: 470px;
+    margin: auto;
+    font-family: @serif-font;
+    font-style: italic;
+  }
+  
+  .quotee{
+    margin-top: 15px;
+    display: block;
+    font-family: @heading-font;
+    color: #175076;
+    
+    b{
+      font-weight: 800;
+    }
+  }
+  
+  .flexslider{
+    height: 405px;
+  }
+  
+  .dt{
+    margin: 0 auto;
+    height: 405px;
+  }
+}
+
+/*=================================================================================================================================== 
+/* .news
+======================================================================================================================================*/
+.news-item{
+  margin-top: 95px;
+  background: #fff;
+  height: 380px;
+  
+  .article-text{
+    padding: 15px 25px;
+  }
+  
+  h3{
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 23px;
+  }
+  
+  p{
+    margin-bottom: 15px;
+    color: #777;
+  }
+
+  .post-date{
+    font-size: 11px;
+    color: #999;
+  }
+  
+  a:hover{
+    h3{
+      color: @main-color;
+    }
+  }
+}
+
+/*=================================================================================================================================== 
+/* #pageFooter
+======================================================================================================================================*/
+
+#pageFooter{
+  background: url('../img/footer_background.jpg') no-repeat center top;
+  margin-top: 230px;
+  height: 420px;
+  position: relative;
+  padding-top: 80px;
+  
+  &:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.7);
+  }
+  
+  .container{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    
+    .footer-title{
+      color: @main-color;
+      font-family: @heading-font;
+      font-weight: 800;
+      font-size: 24px;
+      text-transform: uppercase;
+      display: block;
+    }
+    a{
+      color: #fff;
+      font-size: 47px;
+      margin: 25px 15px;
+    }
+  }
+}
 
 /*=================================================================================================================================== 
 /* #Less Mixins
